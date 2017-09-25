@@ -1,1 +1,40 @@
-Hello World
+<html lang="en" >
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body ng-app="Flights" ng-cloak flex layout="column">
+
+ <md-toolbar class="md-hue-2">
+   <h3 flex>Flight Search Engine</h3>
+   <div ></div> 
+ </md-toolbar>
+ <div layout flex>
+
+ 	<div flex="33" ui-view="sideBar" class="sidenav" layout layout-align="center start"> 
+ 	</div>
+
+ 	<div flex class="main-container" ui-view="main">
+ 	</div>
+ </div>   
+  <!-- Angular Material requires Angular.js Libraries -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
+  <!-- Angular Material Library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+  
+  <!-- Your application bootstrap  -->
+
+  <script type="text/javascript" src="scripts/data.js"></script>
+  <script type="text/javascript" src="scripts/selections.js"></script>
+  <script type="text/javascript" src="scripts/results.js"></script>
+  <script type="text/javascript" src="scripts/sidebar.js"></script>
+  <script type="text/javascript" src="scripts/app.js"></script>
+  
+</body>
+</html>
