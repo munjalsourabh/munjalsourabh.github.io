@@ -1,0 +1,56 @@
+body {
+	overflow: hidden;
+}
+
+.main-container {
+	overflow: auto;
+}
+
+.padding-4-16 {
+  margin: 4px 16px;
+}
+
+.source-details {
+  padding-left: 20px
+}
+
+.flight-code {
+  color: rgba(128, 128, 128, 0.68);
+  font-family: Helvetica;
+  font-size: 14px;
+  font-style: italic;
+}
+
+.flight-details {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.010em;
+  line-height: 1.6em;
+  color: blue;
+}
+
+.sidenav {
+  overflow: auto;
+  border: 2px solid rgba(128, 128, 128, 0.4);
+}
+
+.detail-labels {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.010em;
+  line-height: 1.6em;
+  color: rgba(7, 7, 43, 0.46);
+}
+
+.journey-details {  
+  font-size: 40px;
+  font: Roboto,Helvetica Neue,sans-serif;
+  color: rgba(47, 71, 208, 0.81);
+  padding: 25px;
+}
+
+.journey-dates {
+ font: Roboto,Helvetica Neue,sans-serif;
+ color: rgba(47, 71, 208, 0.81);
+ font-size: 16px; 
+}
