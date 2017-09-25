@@ -1,0 +1,72 @@
+<div layout="column" flex="90">
+
+  <md-switch ng-model="sideBarCtrl.isTripTwoWay" aria-label="Switch 1" class="padding-4-16">
+    Book Two Way
+  </md-switch>
+  <md-datepicker ng-model="sideBarCtrl.departureDate" md-placeholder="Departure Date" flex
+                 md-min-date="sideBarCtrl.minDate" class="padding-4-16"></md-datepicker>
+
+  <md-datepicker ng-model="sideBarCtrl.returnDate" md-placeholder="Departure Date" flex
+                 md-min-date="sideBarCtrl.departureDate" class="padding-4-16"></md-datepicker>
+
+  <md-autocomplete
+      md-autoselect=true
+      md-no-cache="sideBarCtrl.noCache"
+      md-search-text="sideBarCtrl.searchTextSource"
+      md-items="item in sideBarCtrl.sourceQuerySearch(sideBarCtrl.searchTextSource)"
+      md-selected-item-change="sideBarCtrl.setOrigin(item)"
+      md-item-text="item.city"
+      md-min-length="0"
+      placeholder="Source"
+      class="padding-4-16">
+    <md-item-template>
+      <span md-highlight-text="sideBarCtrl.searchTextSource" md-highlight-flags="^i">
+        {{item.city}} ({{item.code}})
+      </span>
+    </md-item-template>
+    <md-not-found>
+      No states matching "{{sideBarCtrl.searchTextSource}}" were found.
+      <a ng-click="sideBarCtrl.newState(sideBarCtrl.searchTextSource)">Create a new one!</a>
+    </md-not-found>
+  </md-autocomplete>
+
+  <md-autocomplete
+      md-autoselect=true
+      md-no-cache="sideBarCtrl.noCache"
+      md-search-text="sideBarCtrl.searchTextDestination"
+      md-items="item in sideBarCtrl.sourceQuerySearch(sideBarCtrl.searchTextDestination)"
+      md-selected-item-change="sideBarCtrl.setDestination(item)"
+      md-item-text="item.city"
+      md-min-length="0"
+      placeholder="Destination"
+      class="padding-4-16">
+    <md-item-template>
+      <span md-highlight-text="sideBarCtrl.searchTextDestination" md-highlight-flags="^i">
+        {{item.city}} ({{item.code}})
+      </span>
+    </md-item-template>
+    <md-not-found>
+      No states matching "{{sideBarCtrl.searchTextDestination}}" were found.
+    </md-not-found>
+  </md-autocomplete>
+
+  <md-slider-container class="padding-4-16">
+    <span>Min Price</span>
+    <md-slider flex min="0" max="100000" ng-model="sideBarCtrl.startPrice">
+    </md-slider>
+    <md-input-container>
+      <input flex type="number" ng-model="sideBarCtrl.startPrice" aria-label="red" aria-controls="red-slider">
+    </md-input-container>
+  </md-slider-container>
+
+  <md-slider-container class="padding-4-16">
+    <span>Min Price</span>
+    <md-slider flex min="1" max="100000" ng-model="sideBarCtrl.maxPrice">
+    </md-slider>
+    <md-input-container>
+      <input flex type="number" ng-model="sideBarCtrl.maxPrice" aria-label="red" aria-controls="red-slider">
+    </md-input-container>
+  </md-slider-container>
+
+   <md-button class="md-raised md-primary" ng-click="sideBarCtrl.setSelections()">Search</md-button>
+</div>
