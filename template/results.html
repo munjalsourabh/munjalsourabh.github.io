@@ -1,0 +1,50 @@
+<md-whiteframe class="md-whiteframe-1dp" layout layout-align="space-between center"
+             ng-if="resultsCtrl.getSelections().origin && resultsCtrl.getSelections().destination.city">
+  <span class="journey-details">
+    <span ng-if="resultsCtrl.getSelections().origin.city">
+      {{resultsCtrl.getSelections().origin.city}} > {{resultsCtrl.getSelections().destination.city}}
+    </span>
+    <span ng-if="resultsCtrl.getSelections().isTripTwoWay"> > {{resultsCtrl.getSelections().origin.city}}</span>
+  </span>
+  <span layout="column">
+    <span class="journey-dates">
+      Depart Date: {{resultsCtrl.getSelections().departureDate.getDate()}}/{{resultsCtrl.getSelections().departureDate.getMonth()}}/{{resultsCtrl.getSelections().departureDate.getFullYear()}} 
+    </span>
+    <span class="journey-dates">
+      Start Date: {{resultsCtrl.getSelections().returnData.getDate()}}/{{resultsCtrl.getSelections().returnData.getMonth()}}/{{resultsCtrl.getSelections().returnData.getFullYear()}} 
+    </span>
+  </span>
+</md-whiteframe>
+<md-card ng-repeat="selection in resultsCtrl.selections track by $index">
+  <md-card-title>
+    <md-card-title-text>
+      <span class="md-headline">{{selection.source.price}}</span>
+    </md-card-title-text>
+    <md-card-title-media>
+      <div class="card-media"></div>
+    </md-card-title-media>
+  </md-card-title>
+  <div layout layout-align="center center">
+    <div flex class="source-details">
+      <div class="flight-code">{{selection.source.flightCode}}</div>
+      <div class="flight-details">
+        {{selection.source.cityCode}} > {{selection.destination.cityCode}}
+      </div>
+      <div class="flight-details">
+        <span class="detail-labels">Depart:</span> {{selection.source.depart}}</div>
+      <div class="flight-details">
+        <span class="detail-labels">Arrive:</span> {{selection.source.arrive}}</div>
+    </div>
+    <div flex ng-if="resultsCtrl.getSelections().isTripTwoWay">
+      <div class="flight-code">{{selection.destination.flightCode}}</div>
+      <div class="flight-details">{{selection.destination.cityCode}} > {{selection.source.cityCode}}</div>
+      <div class="flight-details">
+        <span class="detail-labels">Depart:</span> {{selection.destination.depart}}</div>
+      <div class="flight-details">
+        <span class="detail-labels">Arrive:</span> {{selection.destination.arrive}}</div>
+    </div>
+  </div>
+  <md-card-actions layout="row" layout-align="end center">
+    <md-button>Book this flight</md-button>
+  </md-card-actions>
+</md-card>
